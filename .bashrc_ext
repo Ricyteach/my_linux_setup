@@ -1,0 +1,15 @@
+#pipx
+export PIPX_HOME=$HOME/.local/pipx
+export PIPX_BIN_DIR=$HOME/.local/bin
+export PATH=$PIPX_BIN_DIR:$PATH
+
+# virualenvwrapper
+export VIRTUALENVWRAPPER_BIN=$PIPX_HOME/venvs/virtualenvwrapper/bin
+export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_BIN/python
+export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENVWRAPPER_BIN/virtualenv
+export WORKON_HOME=$HOME/venvs
+export PROJECT_HOME=$HOME/projects
+source $PIPX_BIN_DIR/virtualenvwrapper.sh
+
+# flit
+export FLIT_INSTALL_PYTHON=python
