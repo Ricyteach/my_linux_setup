@@ -3,7 +3,7 @@ export PIPX_HOME=$HOME/.local/pipx
 export PIPX_BIN_DIR=$HOME/.local/bin
 export PATH=$PIPX_BIN_DIR:$PATH
 
-# virualenvwrapper
+# virtualenvwrapper
 export VIRTUALENVWRAPPER_BIN=$PIPX_HOME/venvs/virtualenvwrapper/bin
 export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_BIN/python
 export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENVWRAPPER_BIN/virtualenv
