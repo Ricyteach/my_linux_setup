@@ -1,0 +1,25 @@
+source: https://idroot.us/install-python-3-8-debian-10/
+
+apt update
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+tar -xf Python-3.8.2.tar.xz
+cd Python-3.8.2
+./configure --enable-optimizations
+make -j 4
+sudo make altinstall
+
+sudo apt install nano
+
+nano .bashrc
+<append .bashrc_ext contents>
+
+python3.8 -m pip install --update pip
+python3.8 -m pip install pipx
+pipx install virtualenvwrapper
+pipx install black
+pipx install flit
+
+<download jetbrains toolbox>
+sudo tar -xzf jetbrains-toolbox-1.17.7391.tar.gz -C /opt
+/opt/jetbrains-toolbox-1.17.7391/jetbrains-toolbox
