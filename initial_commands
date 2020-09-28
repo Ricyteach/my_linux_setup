@@ -11,7 +11,7 @@ libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libnss3-d
 curl https://pyenv.run | bash &&
 
 cd ~ &&
-echo -e "\n# pyenv\nexport PATH=\"$HOME/.pyenv/bin:$PATH\"\neval \"$(pyenv init -)\"\neval \"$(pyenv virtualenv-init -)\"\n" >> .bashrc &&
+echo -e "\n# pyenv\nexport PATH=\"\$HOME/.pyenv/bin:\$PATH\"\neval \"\$(pyenv init -)\"\neval \"\$(pyenv virtualenv-init -)\"\n" >> .bashrc &&
 cd - &&
 
 exec "$SHELL" &&
@@ -23,7 +23,7 @@ pip install --upgrade pip &&
 pip install pipx &&
 
 cd ~ &&
-echo -e "\n# pipx\nexport PIPX_HOME=$HOME/.local/pipx\nexport PIPX_BIN_DIR=$HOME/.local/bin\nexport PATH=$PIPX_BIN_DIR:$PATH\n" >> .bashrc &&
+echo -e "\n# pipx\nexport PIPX_HOME=\$HOME/.local/pipx\nexport PIPX_BIN_DIR=\$HOME/.local/bin\nexport PATH=\$PIPX_BIN_DIR:\$PATH\n" >> .bashrc &&
 cd - &&
 
 exec "$SHELL" &&
@@ -33,7 +33,7 @@ pipx install black &&
 pipx install flit &&
 
 cd ~ &&
-echo -e "\n# virtualenvwrapper\nexport VIRTUALENVWRAPPER_BIN=$PIPX_HOME/venvs/virtualenvwrapper/bin\nexport VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_BIN/python\nexport VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENVWRAPPER_BIN/virtualenv\nexport WORKON_HOME=$HOME/venvs\nexport PROJECT_HOME=$HOME/projects\nsource $PIPX_BIN_DIR/virtualenvwrapper.sh\n" >> .bashrc &&
+echo -e "\n# virtualenvwrapper\nexport VIRTUALENVWRAPPER_BIN=\$PIPX_HOME/venvs/virtualenvwrapper/bin\nexport VIRTUALENVWRAPPER_PYTHON=\$VIRTUALENVWRAPPER_BIN/python\nexport VIRTUALENVWRAPPER_VIRTUALENV=\$VIRTUALENVWRAPPER_BIN/virtualenv\nexport WORKON_HOME=\$HOME/venvs\nexport PROJECT_HOME=\$HOME/projects\nsource \$PIPX_BIN_DIR/virtualenvwrapper.sh\n" >> .bashrc &&
 cd - &&
 
 cd ~ &&
