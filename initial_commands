@@ -1,25 +1,48 @@
-source: https://idroot.us/install-python-3-8-debian-10/
+# source: https://idroot.us/install-python-3-8-debian-10/
 
-apt update
-sudo apt install liblzma-dev libbz2-dev build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
-wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
-tar -xf Python-3.8.2.tar.xz
-cd Python-3.8.2
-./configure --enable-optimizations
-make -j 4
-sudo make altinstall
+sudo apt update &&
 
-sudo apt install nano
+sudo apt install nano &&
 
-nano .bashrc
-<append .bashrc_ext contents>
+sudo apt install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libnss3-dev &&
 
-python3.8 -m pip install --update pip
-python3.8 -m pip install pipx
-pipx install virtualenvwrapper
-pipx install black
-pipx install flit
+curl https://pyenv.run | bash &&
 
-<download jetbrains toolbox>
-sudo tar -xzf jetbrains-toolbox-1.17.7391.tar.gz -C /opt
-/opt/jetbrains-toolbox-1.17.7391/jetbrains-toolbox
+cd ~ &&
+echo -e "\n\# pyenv\nexport PATH=\"$HOME/.pyenv/bin:$PATH\"\neval \"$(pyenv init -)\"\neval \"$(pyenv virtualenv-init -)\"\n" >> .bashrc &&
+cd - &&
+
+exec "$SHELL" &&
+
+pyenv install 3.8.6 &&
+pyenv global 3.8.6 &&
+
+pip install --upgrade pip &&
+pip install pipx &&
+
+cd ~ &&
+echo -e "\n\# pipx\nexport PIPX_HOME=$HOME/.local/pipx\nexport PIPX_BIN_DIR=$HOME/.local/bin\nexport PATH=$PIPX_BIN_DIR:$PATH\n" >> .bashrc &&
+cd - &&
+
+exec "$SHELL" &&
+
+pipx install virtualenvwrapper &&
+pipx install black &&
+pipx install flit &&
+
+cd ~ &&
+echo -e "\n\# virtualenvwrapper\nexport VIRTUALENVWRAPPER_BIN=$PIPX_HOME/venvs/virtualenvwrapper/bin\nexport VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_BIN/python\nexport VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENVWRAPPER_BIN/virtualenv\nexport WORKON_HOME=$HOME/venvs\nexport PROJECT_HOME=$HOME/projects\nsource $PIPX_BIN_DIR/virtualenvwrapper.sh\n" >> .bashrc &&
+cd - &&
+
+cd ~ &&
+echo -e "\n\# flit\nexport FLIT_INSTALL_PYTHON=python\n" >> .bashrc &&
+cd - &&
+
+exec "$SHELL" &&
+
+# <download jetbrains toolbox>
+# <share download folder with Linux in chromeos>
+# sudo tar -xzf /mnt/chromeos/MyFiles/Downloads/jetbrains-toolbox-1.18.7455.tar.gz -C /opt
+# /opt/jetbrains-toolbox-1.18.7455/jetbrains-toolbox
