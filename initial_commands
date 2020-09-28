@@ -31,6 +31,7 @@ exec "$SHELL" &&
 pipx install virtualenvwrapper &&
 pipx install black &&
 pipx install flit &&
+pipx install flake8 &&
 
 cd ~ &&
 echo -e "\n# virtualenvwrapper\nexport VIRTUALENVWRAPPER_BIN=\$PIPX_HOME/venvs/virtualenvwrapper/bin\nexport VIRTUALENVWRAPPER_PYTHON=\$VIRTUALENVWRAPPER_BIN/python\nexport VIRTUALENVWRAPPER_VIRTUALENV=\$VIRTUALENVWRAPPER_BIN/virtualenv\nexport WORKON_HOME=\$HOME/venvs\nexport PROJECT_HOME=\$HOME/projects\nsource \$PIPX_BIN_DIR/virtualenvwrapper.sh\n" >> .bashrc &&
@@ -40,7 +41,7 @@ cd ~ &&
 echo -e "\n# flit\nexport FLIT_INSTALL_PYTHON=python\n" >> .bashrc &&
 cd - &&
 
-exec "$SHELL" &&
+exec "$SHELL"
 
 # <download jetbrains toolbox>
 # <share download folder with Linux in chromeos>
