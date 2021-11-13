@@ -11,7 +11,7 @@ libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libnss3-d
 curl https://pyenv.run | bash &&
 
 cd ~ &&
-echo -e "\n# pyenv\nexport PATH=\"\$HOME/.pyenv/bin:\$PATH\"\neval \"\$(pyenv init -)\"\neval \"\$(pyenv virtualenv-init -)\"\n" >> .bashrc &&
+echo -e "\n# pyenv\nexport \"PATH=~/.pyenv/bin:~/.pyenv/shims:$PATH\"eval \"\$(pyenv init -)\"\neval \"\$(pyenv virtualenv-init -)\"\n" >> .bashrc &&
 cd - &&
 
 exec "$SHELL" &&
